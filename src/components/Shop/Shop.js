@@ -2,7 +2,9 @@ import React from 'react';
 import fakeData from '../../fakeData';
 import { useState } from 'react';
 import './Shop.css';
-import Product from '../Product/Product'
+import Product from '../Product/Product';
+import Cart from '../Cart/Cart'
+
 
 const Shop = () => {
     //console.log(fakeData);
@@ -17,15 +19,30 @@ const Shop = () => {
     // console.log(products);
     //console.log(products, setProduct);
 
+
+    // Cart State 
+    const [cart, setCart] = useState([]);
+    // Cart Handler 
+    const handleProductCart = (product) => {
+        // console.log('Product Added', product)
+        const newCart = [...cart, product];
+        setCart(newCart);
+    }
+
+    
+
     return (
         <div className="shop-wrapper">
             <div className="shop-product-container">
                 {
-                    products.map(item => <Product product={item}></Product>)
+                    products.map(item => <Product handleProductCart={handleProductCart} product={item}></Product>)
                 }
             </div>
             <div className="shop-cart-container">
-                <h3>Order Summary</h3>
+                <Cart cart={cart}></Cart>
+                <div className="place-order-button">
+                    <button>Place order Now</button>
+                </div>
             </div>
             
         </div>
