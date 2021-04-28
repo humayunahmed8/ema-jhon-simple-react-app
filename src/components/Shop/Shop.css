@@ -1,0 +1,19 @@
+/* Shop Component CSS */
+
+.shop-wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin-left: auto;
+}
+
+.shop-product-container {
+    flex-basis: 75%;
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid #d3d3d3;
+}
+
+.shop-cart-container {
+    flex-basis: 25%;
+    margin-left: 15px;
+}
